@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { storeConfig } from "../redux/store";
 
+// import layouts;
+import HomePage from "./layouts/home";
+
 const store = storeConfig();
 
 let storeSubscribe = store.subscribe(() => {
@@ -15,7 +18,7 @@ function App(props) {
       <Router>
         <Fragment>
           <Switch>
-            <main className="App">Home Fitness</main>
+            <Route path="/" exact component={HomePage}></Route>
           </Switch>
         </Fragment>
       </Router>

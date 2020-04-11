@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CreateExercise() {
+function CreateExercise() {
   return (
     <div className="container">
       <div className="wrapper">
@@ -24,3 +24,5 @@ export default function CreateExercise() {
     </div>
   );
 }
+
+export default CreateExercise
