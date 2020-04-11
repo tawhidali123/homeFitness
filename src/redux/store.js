@@ -8,7 +8,7 @@ import redux, {
 import thunk from "redux-thunk";
 
 export const storeConfig = () => {
-  const reducer = combineReducers();
+  const reducer = combineReducers({});
 
   const store = createStore(
     reducer,
