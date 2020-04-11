@@ -22,9 +22,9 @@ function Dragable(props) {
 }
 
 Dragable.defaultProps = {
-    val: "push up",
+    val: `push up`,
     draggable: true,
-    id: "push-up"
+    id: `push-up-${Date.now()}`
 }
 
 Dragable.prototype = {
