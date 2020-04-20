@@ -1,6 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-export default function CreateExercise() {
+export default function CreateExercise(props) {
+
+    let [name, setName] = useState('');
+
+
+    let handleNameChange = evt => {
+        setName(evt.target.value)
+    }
+
+    let handleSubmit = evt => {
+        fetch(`http://localhost:3000/workouts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                workout: {name: name}
+            })
+        })
+
+        
+        
+    }
+
+
     return (
         <div className='container'>
             <div className='wrapper'>
@@ -9,17 +34,14 @@ export default function CreateExercise() {
                     <h1>Create an Exercise</h1>
 
                     <h5>Name of Exercise</h5>
-                    <input type='text' />
-
-                    <h5>Category</h5>
-                    <select>
-                       <option value='option1'>option 1</option>
-                       <option value='option2'>option 2</option> 
-                    </select>
+                    <input 
+                    type='text' 
+                    className={'nameOfExercise'}
+                    onChange={handleNameChange} />
 
                     <br />
 
-                    <button>Create Workout</button>
+                    <button onClick={handleSubmit} >Create Workout</button>
                     
                 </div>
 
